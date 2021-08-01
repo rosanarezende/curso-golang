@@ -9,3 +9,10 @@ Compilado de aprendizagem:
 - Construir uma aplicação de linha de comando
 - Construir uma API altamente robusta e escalável utlizando boas práticas
 - Todos os fundamentos da linguagem de forma aprofundada
+
+<br>
+### Repositórios
+
+- [curso-golang](https://github.com/OtavioGallego/curso-golang)
+
+- [DevBook](https://github.com/OtavioGallego/DevBook)
