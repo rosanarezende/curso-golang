@@ -76,3 +76,30 @@ Agora posso rodar o projeto rodando o arquivo diretamente
   ```go
   ./<nome do módulo>
   ```
+
+<ins>OBS</ins>: a medida que for atualizando o arquivo preciso dar o build novamente.
+<br>
+
+<ins>OBS2</ins>: o comando `go install` faz o mesmo que o build, mas salva o arquivo main.go na raiz onde foi intalado o go ao invés de ficar no projeto
+<br>
+
+<ins>OBS3</ins>: **Instalando pacote EXTERNO**
+
+Na mesma pasta do módulo:
+```go
+go get <caminho do pacote>
+```
+- ele adiciona o pacote no `go.mod` e tb cria um arquivo `go.sum`
+
+E pra usar no pacote é só importar
+```go
+...
+import (
+	"github.com/badoux/checkmail"
+)
+...
+func main() {
+  erro := checkmail.ValidateFormat("devbook@gmail.com")
+  fmt.Println(erro)
+}
+```

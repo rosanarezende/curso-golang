@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"modulo/auxiliar"
+	"github.com/badoux/checkmail"
 )
 
 func main() {
@@ -12,4 +13,8 @@ func main() {
 
 	// chamar o escrever2 daria erro, pois está com letra minúscula
 	// auxiliar.escrever2()
+
+	// chamando função de pacote externo
+	erro := checkmail.ValidateFormat("devbook@gmail.com")
+	fmt.Println(erro)
 }
