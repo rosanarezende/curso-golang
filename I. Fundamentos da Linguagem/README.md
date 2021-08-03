@@ -343,48 +343,333 @@ Ponteiro é uma referência de memória
 
 ## IX - Arrays e Slices
 
+### Array
 
+<ins>Criando</ins>
+
+```go
+var array1 [5]string
+array1[0] = "Posição 1"
+
+array2 := [5]string{"Posição 1", "Posição 2", "Posição 3", "Posição 4", "Posição 5"}
+
+array3 := [...]int{1, 2, 3, 4, 5}
+```
+
+### Slice
+
+<ins>Criando</ins>
+
+- do zero:
+```go
+slice := []int{10, 11, 12, 13, 14, 15, 16, 17}
+```
+
+- de um array
+	```go
+	slice2 := array2[1:3]
+	```
+
+	- e se eu alterar o array?
+		```go
+		array2[1] = "Posição Alterada"
+		fmt.Println(slice2)
+		//
+		```
+
+<ins>Adicionando</ins>
+
+```go
+	slice = append(slice, 18)
+```
+
+### Arrays internos
+
+<ins>Criando</ins>
+
+```go
+slice3 := make([]float32, 10, 11)
+fmt.Println(slice3)
+// 
+```
+
+<ins>Adicionando</ins>
+
+```go
+slice3 = append(slice3, 5)
+slice3 = append(slice3, 6)
+```
+
+- fica de olho:
+	```go
+	fmt.Println(slice3)
+	fmt.Println(len(slice3)) // length
+	fmt.Println(cap(slice3)) // capacidade
+	```
 
 <br>
 
 ## X - Maps
 
+<ins>Criando</ins>
 
+	```go
+	usuario := map[string]string{
+		"nome":				"Rosana",
+		"sobrenome":	"Rezende",
+	}
+	fmt.Println(usuario["nome"])
+
+	usuario2 := map[string]map[string]string{
+		"nome": {
+			"primeiro":	"Pedro",
+			"último":		"Lucas",
+		},
+		"curso": {
+			"nome":		"Engenharia",
+			"campus": "Campus 1",
+		},
+	}
+	fmt.Println(usuario2)
+	```
+
+<br>
+
+<ins>Deletando</ins>
+
+```go
+	delete(usuario2, "nome")
+```
+
+<br>
+
+<ins>Adicionando</ins>
+
+```go
+	usuario2["signo"] = map[string]string{
+		"nome": "Gêmeos",
+	}
+```
 
 <br>
 
 ## XI - If Else
 
+```go
+	numero := -5
 
+	if numero > 15 {
+		fmt.Println("Maior que 15")
+	} else {
+		fmt.Println("Menor que 15")
+	}
+
+	
+	if outroNumero := numero; outroNumero > 0 {
+		fmt.Println("Numero é maior que zero")
+	} else if numero < -10 {
+		fmt.Println("Numero menor que -10")
+	} else {
+		fmt.Println("Entre 0 e -10")
+	}
+```
 
 <br>
 
 ## XII - Switch
 
+```go
+func diaDaSemana(numero int) string {
+	switch numero {
+	case 1:
+		return "Domingo"
+	case 2:
+		return "Segunda-Feira"
+	case 3:
+		return "Terça-Feira"
+	case 4:
+		return "Quarta-Feira"
+	case 5:
+		return "Quinta-Feira"
+	case 6:
+		return "Sexta-Feira"
+	case 7:
+		return "Domingo"
+	default:
+		return "Número Inválido"
+	}
+}
+dia := diaDaSemana(200)
+fmt.Println(dia)
+// 
 
+
+func diaDaSemana2(numero int) string {
+	var diaDaSemana string
+
+	switch {
+	case numero == 1:
+		diaDaSemana = "Domingo"
+	case numero == 2:
+		diaDaSemana = "Segunda-Feira"
+	case numero == 3:
+		diaDaSemana = "Terça-Feira"
+	case numero == 4:
+		diaDaSemana = "Quarta-Feira"
+	case numero == 5:
+		diaDaSemana = "Quinta-Feira"
+	case numero == 6:
+		diaDaSemana = "Sexta-Feira"
+	case numero == 7:
+		diaDaSemana = "Domingo"
+	default:
+		diaDaSemana = "Número Inválido"
+	}
+
+	return diaDaSemana
+}
+dia2 := diaDaSemana2(1)
+fmt.Println(dia2)
+//
+```
 
 <br>
 
 ## XIII - Loops
 
+```go
+	i := 0
+	for i < 10 {
+		i++
+		fmt.Println("Incrementando i")
+		time.Sleep(time.Second)
+	}
+	fmt.Println(i)
+```
+
+
+```go
+	for j := 0; j < 10; j += 5 {
+		fmt.Println("Incrementando j", j)
+		time.Sleep(time.Second)
+	}
+```
+
+<br>
+
+<ins>Range</ins>
+
+```go
+	for indice, letra := range "PALAVRA" {
+		fmt.Println(indice, string(letra))
+	}
+
+
+	nomes := [3]string{"João", "Davi", "Lucas"}
+	for _, nome := range nomes {
+		fmt.Println(nome)
+	}
+
+
+	usuario := map[string]string{
+		"nome":      "Leonardo",
+		"sobrenome": "Silva",
+	}
+	for chave, valor := range usuario {
+		fmt.Println(chave, valor)
+	}
+```
+
+<br>
+
+<ins>Infinito</ins>
+
+```go
+	// for {
+	// 	fmt.Println("Executando infinitamente")
+	// 	time.Sleep(time.Second)
+	// }
+```
 
 
 <br>
 
-## XIV - Funções Avançadas
+## XIV - Métodos
 
+```go
+type usuario struct {
+	nome  string
+	idade uint8
+}
 
+func (u usuario) salvar() {
+	fmt.Println("Salvando os dados de %s no BD\n", u.nome)
+}
+
+func (u usuario) maiorDeIdade() bool {
+	return u.idade >= 18
+}
+
+func (u *usuario) fazerAniversario() {
+	u.idade++
+}
+
+func main() {
+	usuario1 := usuario{"Usuario 1", 20}
+	usuario1.salvar()
+
+	usuario2 := usuario{"Usuario 2", 30}
+	usuario2.salvar()
+
+	maiorDeIdade := usuario2.maiorDeIdade()
+	fmt.Println("É maior de idade? ", maiorDeIdade)
+
+	usuario2.fazerAniversario()
+	fmt.Println("Nova idade: ", usuario2.idade)
+}
+```
 
 <br>
 
-## XV - Métodos
+## XV - Interfaces
 
+### FORMAS
 
+```go
+
+```
 
 <br>
 
-## XVI - Interfaces
+### TIPO GENÉRICO
 
 
+```go
+	func generica(interf interface{}) {
+		fmt.Println(interf)
+	}
+
+	generica("String")
+	//
+		
+	generica(1)
+	//
+
+	generica(true)
+	//
+```
+
+<br>
+
+```go
+	mapa := map[interface{}]interface{}{
+		1:            "String",
+		float32(100): true,
+		"String":     "String",
+		true:         float64(12),
+	}
+
+	fmt.Println(mapa)
+```
 
 <br>
