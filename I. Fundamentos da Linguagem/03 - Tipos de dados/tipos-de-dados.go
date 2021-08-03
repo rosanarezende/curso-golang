@@ -24,7 +24,6 @@ func main() {
 	var numero4 byte = 123
 	fmt.Println(numero4)
 
-
 	//  ============ Números reais ============
 	var numeroReal1 float32 = 123.45
 	fmt.Println(numeroReal1)
@@ -34,7 +33,6 @@ func main() {
 
 	numeroReal3 := 123.45
 	fmt.Println(numeroReal3)
-
 
 	// ============ Strings ============
 
@@ -52,12 +50,10 @@ func main() {
 	texto3 := 5
 	fmt.Println(texto3)
 
-
 	// ============ Booleanos ============
 	var booleano1 bool
 	fmt.Println(booleano1)
 
-	
 	// ============ Erro ============
 	var erro error = errors.New("erro interno")
 	fmt.Println(erro)

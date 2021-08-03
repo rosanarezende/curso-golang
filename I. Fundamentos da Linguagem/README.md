@@ -3,35 +3,48 @@
 ## Vantagens de prender Go (Golang)
 
 - **Eficiente**:
+
   - <ins>compilada</ins>: + rápida do q interpretadas
   - <ins>otimizada para usar + de 1 núcleo do processador</ins>: a linguagem surgiu depois q os processadores já tinham + de 1 núcleo
   - <ins>lida bem com concorrência</ins>
+
   <br>
 
 - **Simplicidade + robustez**
+
   - <ins>simples de aprender e entender como JS/Python</ins> (mas elas flexibilidade até demais)
   - <ins>robusta como C#/Java</ins> (mas complexas, até difíceis de aprender), por ser fortemente tipada
+
   <br>
 
 - **Criada pelo Google**
+
   - feita pra resolver problemas de uma empresa gigante... e tb mantida por ela.
+
   <br>
 
 - **Utilizada por grandes empresas**
   - #ex: Google, Facebook, Uber, Twitch, IBM
   - inclusive empresas brasileiras
 
+<br>
+
 ## Anotações gerais
 
+<br>
+
 **Lista de imports**: referencia os pacotes q iremos usar no arquivo
-  ```go
-  import (
-    "fmt"
-  )
-  ```
+
+```go
+import (
+  "fmt"
+)
+```
+
 <br>
 
 **Terminal**
+
 - pra rodar:
   ```go
   go run <nome do arquivo>
@@ -41,11 +54,14 @@
 
 ## I - Pacote e Módulo
 
-**Pacote**: grupo de arquivos num mesmo diretório, compilados juntos
-- uma variável/função/etc declarada em um arquivo será visível para todos os arquivos que tb estiverem nesse pacote
-- <ins>main</ins>:  go identifica que esse arquivo é executável
-package main
 <br>
+
+**Pacote**: grupo de arquivos num mesmo diretório, compilados juntos
+
+- uma variável/função/etc declarada em um arquivo será visível para todos os arquivos que tb estiverem nesse pacote
+- <ins>main</ins>: go identifica que esse arquivo é executável
+  package main
+  <br>
 
 - apesar de go não ser orientado a objetos (não tendo public, private e protected, por exemplo), nós podemos dizer de determinada função/variável/struct pode ou não ser chamada em outros pacotes
   - letra **Maiúscula**: pode ser acessado de fora do pacote... é pública
@@ -54,7 +70,8 @@ package main
 
 <br>
 
-**Módulo**: Ao lidar com +d1 pacote precisamos criar um módulo (*conj de pcts q contem o projeto -> q vc criou ou externo*)
+**Módulo**: Ao lidar com +d1 pacote precisamos criar um módulo (_conj de pcts q contem o projeto -> q vc criou ou externo_)
+
 - a ideia é q o go compile todo esse código do projeto em um lugar só
 - é como no package.json do JS (centralizando todas as dependências)
 - pra criar o `go.mod`
@@ -65,22 +82,29 @@ package main
 <br>
 
 E pra criar o módulo em si
-  ```go
-  go build
-  ```
+
+```go
+go build
+```
+
 - aí ele cria um módulo com o nome que demos anteriormente
 
 <br>
 
 Agora posso rodar o projeto rodando o arquivo diretamente
-  ```go
-  ./<nome do módulo>
-  ```
+
+```go
+./<nome do módulo>
+```
+
+<br>
 
 <ins>OBS</ins>: a medida que for atualizando o arquivo preciso dar o build novamente.
+
 <br>
 
 <ins>OBS2</ins>: o comando `go install` faz o mesmo que o build, mas salva o arquivo main.go na raiz onde foi intalado o go ao invés de ficar no projeto
+
 <br>
 
 <ins>OBS3</ins>: **Instalando pacote EXTERNO**
@@ -90,7 +114,10 @@ Na mesma pasta do módulo:
 ```go
 go get <caminho do pacote>
 ```
+
 - ele adiciona o pacote no `go.mod` e tb cria um arquivo `go.sum`
+
+<br>
 
 E pra usar no pacote é só importar
 
@@ -105,68 +132,125 @@ func main() {
   fmt.Println(erro)
 }
 ```
+
 <br>
 
 <ins>OBS4</ins>: se eu quiser **LIMPAR** pacotes externo não usados na aplicação
 
- ```go
+```go
 go mod tidy
 ```
 
 <br>
 
-## II - Variáveis
+## II - Variáveis / Constantes
 
-Maneiras de **atribuir** variáveis:
+<br>
+
+Maneiras de **atribuir** <ins>variáveis</ins>:
+
+- só uma:
+
+  ```go
+  // tipando
+  var variavel1 string = "variável 1"
+
+  // inferência de tipo
+  variavel2 := "variável 2"
+  ```
+
+<br>
+
+- várias:
+
+  ```go
+  var (
+  	variavel3 string = "variável 3"
+  	variavel4 string = "variável 4"
+  )
+
+  variavel5, variavel6 := "variável 5", "variável 6"
+  ```
+
+<br>
+
+E <ins>constantes</ins>:
 
 ```go
-var variavel1 string = "variável 1"
-
-variavel2 := "variável 2"
-
-var (
-	variavel3 string = "variável 3"
-	variavel4 string = "variável 4"
-)
-
-variavel5, variavel6 := "variável 5", "variável 6"
-	
 const constante1 string = "constante 1"
 ```
 
-Podemos **reatribuir** variáveis:
+<br>
+
+<ins>OBS</ins>: Podemos **inverter** o valor das variáveis sem precisar de um auxiliar:
 
 ```go
 variavel5, variavel6 = variavel6, variavel5
 ```
 
+- segue as mesmas opções das variáveis
+
 <br>
 
 ## III - Tipos de dados
 
+<br>
+
 ### Números
+
+<br>
 
 <ins>Inteiros</ins>:
 
-```go
-	var numero1 int64 = -100000
+- São 4 tipos, a depender da qtd de bites: int8, int16, int32, int64.
+- Ou posso não especificar (**int**), e aí ele usa a arquitetura do seu computador como base.
 
-	var numero2 uint32 = 100000
+  ```go
+  // ======== INT8 ========
+  var numero8 int8 = 123
+  // Alias
+  var numero8 byte = 123
+  	// OBS: se eu coloco um número muito grande nele dá erro
+  	//constant 1230000000000000 overflows byte
 
-	// Alias =>>> INT32 = rune
-	var numero3 rune = 123456
 
-	// Alias =>>> UINT8 = byte
-	var numero4 byte = 123
-```
+  // ======== INT16 ========
+  var numero16 int16 = 100
+
+
+  // ======== INT32 ========
+  var numero32b int32 = 123456
+  // Alias
+  var numero32b rune = 123456
+
+
+  // ======== INT64 ========
+  var numero64 int64 = -1000000000
+
+  ```
+
+<br>
+
+Podemos atribuir números negativos, como vimos, mas tb podemos colocar um **int sem sinal** (unsygned int)
+
+    ```go
+    var numero32a uint32 = 123456
+    ```
+
+- não aceita atribuição de número negativo
+
+<br>
 
 <ins>Reais</ins>:
+
+- só tem dois tipos: float32 e float64
 
 ```go
 	var numeroReal1 float32 = 123.45
 
 	var numeroReal2 float64 = 123678.45
 
+	// ele vai inferir pelo computador... diz float, mas só ele pode usar assim
 	numeroReal3 := 123.45
 ```
 
@@ -178,13 +262,27 @@ variavel5, variavel6 = variavel6, variavel5
 	var texto1 string = "texto"
 
 	texto2 := "texto"
-
-	char := 'A'
 ```
 
-	// ============
+<br>
 
-	texto3 := 5
+<ins>OBS</ins>: Go não tem ~~char~~.
+
+- um caractére só com aspas simples ele converte pra número
+
+  ```go
+  	char := 'A'
+  	// converte para o número da tabela asp... nesse caso 65
+  	// se colocar +d1 caracter dá erro
+  ```
+
+<br>
+
+<ins>OBS2</ins>:
+
+```go
+texto3 := 5
+```
 
 <br>
 
@@ -213,7 +311,6 @@ func somar(num1 int8, num2 int8) int8 {
 soma := somar(10, 20)
 ```
 
-
 ```go
 func calculosMatematicos(num1, num2 int8) (int8, int8) {
 	soma := num1 + num2
@@ -222,7 +319,6 @@ func calculosMatematicos(num1, num2 int8) (int8, int8) {
 }
 _, resultadoSubtracao := calculosMatematicos(10, 15)
 ```
-
 
 ```go
 var f = func(texto string) string {
@@ -236,7 +332,8 @@ resultado := f("Texto da função 1")
 
 ## V - Operadores
 
-Ver arquivo 
+Ver arquivo
+
 - mesmo que em JS
 
 <br>
@@ -313,29 +410,31 @@ estudante1 := estudante{pessoa1, "Engenharia", "USP"}
 Ponteiro é uma referência de memória
 
 - sem ~~ponteiro~~
+
   ```go
   var variavel1 int = 10
-	var variavel2 int = variavel1
-	fmt.Println(variavel1, variavel2)
-  // 
+  var variavel2 int = variavel1
+  fmt.Println(variavel1, variavel2)
+  //
 
-	variavel2++
-	fmt.Println(variavel1, variavel2)
+  variavel2++
+  fmt.Println(variavel1, variavel2)
   //
   ```
 
 - com ponteiro
+
   ```go
   var variavel3 int
-	var ponteiro *int
+  var ponteiro *int
 
-	variavel3 = 100
-	ponteiro = &variavel3
-	fmt.Println(variavel3, ponteiro)
+  variavel3 = 100
+  ponteiro = &variavel3
+  fmt.Println(variavel3, ponteiro)
   //
 
-	variavel3 = 150
-	fmt.Println(variavel3, *ponteiro)
+  variavel3 = 150
+  fmt.Println(variavel3, *ponteiro)
   //
   ```
 
@@ -361,21 +460,23 @@ array3 := [...]int{1, 2, 3, 4, 5}
 <ins>Criando</ins>
 
 - do zero:
+
 ```go
 slice := []int{10, 11, 12, 13, 14, 15, 16, 17}
 ```
 
 - de um array
-	```go
-	slice2 := array2[1:3]
-	```
 
-	- e se eu alterar o array?
-		```go
-		array2[1] = "Posição Alterada"
-		fmt.Println(slice2)
-		//
-		```
+  ```go
+  slice2 := array2[1:3]
+  ```
+
+  - e se eu alterar o array?
+    ```go
+    array2[1] = "Posição Alterada"
+    fmt.Println(slice2)
+    //
+    ```
 
 <ins>Adicionando</ins>
 
@@ -390,7 +491,7 @@ slice := []int{10, 11, 12, 13, 14, 15, 16, 17}
 ```go
 slice3 := make([]float32, 10, 11)
 fmt.Println(slice3)
-// 
+//
 ```
 
 <ins>Adicionando</ins>
@@ -401,11 +502,11 @@ slice3 = append(slice3, 6)
 ```
 
 - fica de olho:
-	```go
-	fmt.Println(slice3)
-	fmt.Println(len(slice3)) // length
-	fmt.Println(cap(slice3)) // capacidade
-	```
+  ```go
+  fmt.Println(slice3)
+  fmt.Println(len(slice3)) // length
+  fmt.Println(cap(slice3)) // capacidade
+  ```
 
 <br>
 
@@ -413,25 +514,25 @@ slice3 = append(slice3, 6)
 
 <ins>Criando</ins>
 
-	```go
-	usuario := map[string]string{
-		"nome":				"Rosana",
-		"sobrenome":	"Rezende",
-	}
-	fmt.Println(usuario["nome"])
+    ```go
+    usuario := map[string]string{
+    	"nome":				"Rosana",
+    	"sobrenome":	"Rezende",
+    }
+    fmt.Println(usuario["nome"])
 
-	usuario2 := map[string]map[string]string{
-		"nome": {
-			"primeiro":	"Pedro",
-			"último":		"Lucas",
-		},
-		"curso": {
-			"nome":		"Engenharia",
-			"campus": "Campus 1",
-		},
-	}
-	fmt.Println(usuario2)
-	```
+    usuario2 := map[string]map[string]string{
+    	"nome": {
+    		"primeiro":	"Pedro",
+    		"último":		"Lucas",
+    	},
+    	"curso": {
+    		"nome":		"Engenharia",
+    		"campus": "Campus 1",
+    	},
+    }
+    fmt.Println(usuario2)
+    ```
 
 <br>
 
@@ -464,7 +565,7 @@ slice3 = append(slice3, 6)
 		fmt.Println("Menor que 15")
 	}
 
-	
+
 	if outroNumero := numero; outroNumero > 0 {
 		fmt.Println("Numero é maior que zero")
 	} else if numero < -10 {
@@ -501,7 +602,7 @@ func diaDaSemana(numero int) string {
 }
 dia := diaDaSemana(200)
 fmt.Println(dia)
-// 
+//
 
 
 func diaDaSemana2(numero int) string {
@@ -547,7 +648,6 @@ fmt.Println(dia2)
 	fmt.Println(i)
 ```
 
-
 ```go
 	for j := 0; j < 10; j += 5 {
 		fmt.Println("Incrementando j", j)
@@ -590,7 +690,6 @@ fmt.Println(dia2)
 	// 	time.Sleep(time.Second)
 	// }
 ```
-
 
 <br>
 
@@ -643,7 +742,6 @@ func main() {
 
 ### TIPO GENÉRICO
 
-
 ```go
 	func generica(interf interface{}) {
 		fmt.Println(interf)
@@ -651,7 +749,7 @@ func main() {
 
 	generica("String")
 	//
-		
+
 	generica(1)
 	//
 
