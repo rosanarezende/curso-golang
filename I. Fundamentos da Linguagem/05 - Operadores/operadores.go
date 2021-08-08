@@ -47,17 +47,25 @@ func main() {
 	fmt.Println("--------------")
 	numero := 10
 	numero++
+	fmt.Println(numero)
+	numero--
+	fmt.Println(numero)
+
 	numero += 15 // numero = numero + 15
 	fmt.Println(numero)
 
-	numero--
 	numero -= 20 // numero = numero - 20
+	fmt.Println(numero)
 
 	numero *= 3 // numero = numero * 3
-	numero /= 10
-	numero %= 3
-
 	fmt.Println(numero)
+
+	numero %= 10
+	fmt.Println(numero)
+
+	numero /= 2
+	fmt.Println(numero)
+
 
 
 	var texto string

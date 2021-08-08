@@ -16,7 +16,6 @@ func main() {
 		},
 		"curso": {
 			"nome":		"Engenharia",
-			"campus": "Campus 1",
 		},
 	}
 	fmt.Println(usuario2)

@@ -16,7 +16,11 @@ type endereco struct {
 func main() {
 	fmt.Println("Arquivo structs")
 
+	var ende endereco
+	fmt.Println(ende)
+
 	var u usuario
+	fmt.Println(u)
 	u.nome = "Davi"
 	u.idade = 21
 	fmt.Println(u)

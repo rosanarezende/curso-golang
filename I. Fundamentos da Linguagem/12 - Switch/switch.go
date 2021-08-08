@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func diaDaSemana(numero int) string {
 	switch numero {
@@ -29,6 +31,7 @@ func diaDaSemana2(numero int) string {
 	switch {
 	case numero == 1:
 		diaDaSemana = "Domingo"
+		fallthrough
 	case numero == 2:
 		diaDaSemana = "Segunda-Feira"
 	case numero == 3:

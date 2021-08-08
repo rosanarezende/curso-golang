@@ -1,4 +1,4 @@
-# FUNÇÕES AVANÇADAS
+# 01 - FUNÇÕES AVANÇADAS
 
 ## 1. Retorno Nomeado
 
@@ -195,6 +195,104 @@ func main() {
 	fmt.Println("Função main sendo executada")
 	fmt.Println(n)
 }
+```
+
+<br>
+
+
+# 02 - Métodos
+
+São parecidos com funções, mas está obrigaoriamente **associado a alguma coisa** (struct, interface)
+
+<br>
+
+- <ins>ex</ins>: vamos criar um usuário (struct) e um método que toda vez que invocado salve ele no BD
+
+	```go
+	type usuario struct {
+		nome  string
+		idade uint8
+	}
+
+	func (u usuario) salvar() {
+		fmt.Printf("Salvando os dados de %s no BD.\n", u.nome)
+	}
+	usuario2 := usuario{"Usuario 2", 30}
+	usuario2.salvar()
+	// Salvando os dados de Usuario 2 no BD
+	```
+	- relembrando:
+		- `%s` - string
+		- `%d` - números
+		- `%f` - número real
+
+<br>
+
+- agora criaremos mais métodos pra esse usuários... saber se ele é maior e aumentar sua idade (alterar um parêmetro dele)
+
+	```go
+	func (u usuario) maiorDeIdade() bool {
+		return u.idade >= 18
+	}
+	maiorDeIdade := usuario2.maiorDeIdade()
+	fmt.Println("É maior de idade? ", maiorDeIdade)
+	// É maior de idade?  true
+	```
+
+<br>
+
+- tb é possível **alterar um atributo** desse usuário - ex: aumentar sua idade
+	- nesse caso usamos <ins>ponteiro</ins>
+
+	```go
+	func (u *usuario) fazerAniversario() {
+		u.idade++
+	}
+	usuario2.fazerAniversario()
+	fmt.Println("Nova idade: ", usuario2.idade)
+	// Nova idade:  31
+	```
+
+<br>
+
+# 03 - Interfaces
+
+## FORMAS
+
+```go
+
+```
+
+<br>
+
+## TIPO GENÉRICO
+
+```go
+	func generica(interf interface{}) {
+		fmt.Println(interf)
+	}
+
+	generica("String")
+	//
+
+	generica(1)
+	//
+
+	generica(true)
+	//
+```
+
+<br>
+
+```go
+	mapa := map[interface{}]interface{}{
+		1:            "String",
+		float32(100): true,
+		"String":     "String",
+		true:         float64(12),
+	}
+
+	fmt.Println(mapa)
 ```
 
 <br>

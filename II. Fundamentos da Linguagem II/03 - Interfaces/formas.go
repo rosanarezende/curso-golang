@@ -31,6 +31,7 @@ func (c circulo) area() float64 {
 
 func main() {
 	r := retangulo{10, 15}
+	fmt.Println(r.area())
 	escreverArea(r)
 
 	c := circulo{10}
