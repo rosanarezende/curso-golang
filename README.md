@@ -22,39 +22,41 @@ Compilado de aprendizagem:
 
 ## Roteiro de pastas
 
-### I. [Fundamentos da Linguagem](I.%20Fundamentos%20da%20Linguagem)
+<br>
 
-  01 - [Pacotes](/I.%20Fundamentos%20da%20Linguagem/01%20-%20Pacotes)
+- I. [Fundamentos da Linguagem](I.%20Fundamentos%20da%20Linguagem)
 
-  02 - [Variáveis](/I.%20Fundamentos%20da%20Linguagem/02%20-%20Variáveis)
+  - 01 - [Pacotes](/I.%20Fundamentos%20da%20Linguagem/01%20-%20Pacotes)
 
-  03 - [Tipos de dados](/I.%20Fundamentos%20da%20Linguagem/03%20-%20Tipos%20de%20dados)
+  - 02 - [Variáveis](/I.%20Fundamentos%20da%20Linguagem/02%20-%20Variáveis)
+
+  - 03 - [Tipos de dados](/I.%20Fundamentos%20da%20Linguagem/03%20-%20Tipos%20de%20dados)
   
-  04 - [Funções](/I.%20Fundamentos%20da%20Linguagem/04%20-%20Funções)
+  - 04 - [Funções](/I.%20Fundamentos%20da%20Linguagem/04%20-%20Funções)
   
-  05 - [Operadores](/I.%20Fundamentos%20da%20Linguagem/05%20-%20Operadores)
+  - 05 - [Operadores](/I.%20Fundamentos%20da%20Linguagem/05%20-%20Operadores)
   
-  06 - [Structs](/I.%20Fundamentos%20da%20Linguagem/06%20-%20Structs)
+  - 06 - [Structs](/I.%20Fundamentos%20da%20Linguagem/06%20-%20Structs)
   
-  07 - [Herança - só que não](/I.%20Fundamentos%20da%20Linguagem/07%20-%20Herança%20-%20só%20que%20não)
+  - 07 - [Herança - só que não](/I.%20Fundamentos%20da%20Linguagem/07%20-%20Herança%20-%20só%20que%20não)
   
-  08 - [Ponteiros](/I.%20Fundamentos%20da%20Linguagem/08%20-%20Ponteiros)
+  - 08 - [Ponteiros](/I.%20Fundamentos%20da%20Linguagem/08%20-%20Ponteiros)
   
-  09 - [Arrays e Slices](/I.%20Fundamentos%20da%20Linguagem/09%20-%20Arrays%20e%20Slices)
+  - 09 - [Arrays e Slices](/I.%20Fundamentos%20da%20Linguagem/09%20-%20Arrays%20e%20Slices)
   
-  10 - [Maps](/I.%20Fundamentos%20da%20Linguagem/10%20-%20Maps)
+  - 10 - [Maps](/I.%20Fundamentos%20da%20Linguagem/10%20-%20Maps)
   
-  11 - [If Else](/I.%20Fundamentos%20da%20Linguagem/11%20-%20If%20Else)
+  - 11 - [If Else](/I.%20Fundamentos%20da%20Linguagem/11%20-%20If%20Else)
   
-  12 - [Switch](/I.%20Fundamentos%20da%20Linguagem/12%20-%20Switch)
+  - 12 - [Switch](/I.%20Fundamentos%20da%20Linguagem/12%20-%20Switch)
   
-  13 - [Loops](/I.%20Fundamentos%20da%20Linguagem/13%20-%20Loops)
+  - 13 - [Loops](/I.%20Fundamentos%20da%20Linguagem/13%20-%20Loops)
 
 <br>
 
-### II. [Fundamentos da Linguagem II](/II.%20Fundamentos%20da%20Linguagem%20II)
+- II. [Fundamentos da Linguagem II](/II.%20Fundamentos%20da%20Linguagem%20II)
 
-  01 - [Funções Avançadas](/II.%20Fundamentos%20da%20Linguagem%20II/01%20-%20Funções%20Avançadas)
+  - 01 - [Funções Avançadas](/II.%20Fundamentos%20da%20Linguagem%20II/01%20-%20Funções%20Avançadas)
 
     1. Retorno Nomeado
     
@@ -74,6 +76,8 @@ Compilado de aprendizagem:
     
     9. Init
   
-  02 - [Métodos](/II.%20Fundamentos%20da%20Linguagem%20II/02%20-%20Métodos)
+  - 02 - [Métodos](/II.%20Fundamentos%20da%20Linguagem%20II/02%20-%20Métodos)
   
-  03 - [Interfaces](/II.%20Fundamentos%20da%20Linguagem%20II/03%20-%20Interfaces)
+  - 03 - [Interfaces](/II.%20Fundamentos%20da%20Linguagem%20II/03%20-%20Interfaces)
+
+<br>
