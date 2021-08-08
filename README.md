@@ -12,8 +12,68 @@ Compilado de aprendizagem:
 
 <br>
 
-### Repositórios
+## Repositórios
 
 - [curso-golang](https://github.com/OtavioGallego/curso-golang)
 
 - [DevBook](https://github.com/OtavioGallego/DevBook)
+
+<br>
+
+## Roteiro de pastas
+
+[I. Fundamentos da Linguagem](I.%20Fundamentos%20da%20Linguagem)
+
+  01 - Pacotes
+
+  02 - Variáveis
+
+  03 - Tipos de dados
+  
+  04 - Funções
+  
+  05 - Operadores
+  
+  06 - Structs
+  
+  07 - Herança - só que não
+  
+  08 - Ponteiros
+  
+  09 - Arrays e Slices
+  
+  10 - Maps
+  
+  11 - If Else
+  
+  12 - Switch
+  
+  13 - Loops
+
+<br>
+
+II. Fundamentos da Linguagem II
+
+  01 - Funções Avançadas
+
+    1. Retorno Nomeado
+    
+    2. Funções Variáticas
+    
+    3. Funções Anônimas
+    
+    4. Funções Recursivas
+    
+    5. Defer
+    
+    6. Panic e Recover
+    
+    7. Closure
+    
+    8. Ponteiros
+    
+    9. Init
+  
+  02 - Métodos
+  
+  03 - Interfaces
