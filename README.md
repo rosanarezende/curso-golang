@@ -22,9 +22,9 @@ Compilado de aprendizagem:
 
 ## Roteiro de pastas
 
-[I. Fundamentos da Linguagem](I.%20Fundamentos%20da%20Linguagem)
+### I. [Fundamentos da Linguagem](I.%20Fundamentos%20da%20Linguagem)
 
-  01 - Pacotes
+  01 - [Pacotes](/I.%20Fundamentos%20da%20Linguagem/01%20-%20Pacotes)
 
   02 - Variáveis
 
