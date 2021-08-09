@@ -15,7 +15,9 @@ func main() {
 
 	// 1 1 2 3 5 8 13
 
-	posicao := uint(12)
+	fmt.Println(fibonacci(4))
+
+	posicao := uint(3)
 
 	for i := uint(1); i <= posicao; i++ {
 		fmt.Println(fibonacci(i))

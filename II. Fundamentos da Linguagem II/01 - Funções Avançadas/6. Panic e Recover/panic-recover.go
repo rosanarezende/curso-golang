@@ -22,6 +22,6 @@ func alunoEstaAprovado(n1, n2 float64) bool {
 }
 
 func main() {
-	fmt.Println(alunoEstaAprovado(8, 6))
+	fmt.Println(alunoEstaAprovado(6, 6))
 	fmt.Println("Pós execução!")
 }

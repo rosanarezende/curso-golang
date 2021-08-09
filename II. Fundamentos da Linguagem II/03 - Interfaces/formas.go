@@ -35,6 +35,7 @@ func main() {
 	escreverArea(r)
 
 	c := circulo{10}
+	fmt.Println(c.area())
 	escreverArea(c)
 
 }
